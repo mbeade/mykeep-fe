@@ -1,0 +1,32 @@
+<mat-card  [ngClass]="{ 'overlay': editing, 'importantCard': todoList.isImportant}" *ngIf="todoList">
+
+  <mat-card-title style="text-align: center" *ngIf="!isEditing" (click)="edit()">
+    {{todoList.listName}}
+  </mat-card-title>
+
+  <input class="itemInput" #listName autofocus type="text" [(ngModel)]="todoList.listName" *ngIf="isEditing" (change)="saveList()"
+    (blur)="isEditing = false" />
+
+  <mat-card-content style="min-height: 200px">
+    <mat-list>
+      <mat-list-item *ngFor="let item of todoList.todos">
+        <app-todo-item (updateItem)="updateItem($event)" (deleteItem)="deleteItem($event)" [item]="item">
+        </app-todo-item>
+      </mat-list-item>
+    </mat-list>
+  </mat-card-content>
+  <mat-card-actions style="text-align: center">
+    <button mat-fab (click)="addNewItem()">
+      <mat-icon>plus_one</mat-icon>
+    </button>
+    <button mat-fab>
+      <mat-icon (click)="markAllDone()">done_all</mat-icon>
+    </button>
+    <button mat-fab *ngIf="!todoList.isImportant">
+      <mat-icon (click)="markAsImportant()">add_alert</mat-icon>
+    </button>
+    <button mat-fab>
+      <mat-icon (click)="deleteList()">clear</mat-icon>
+    </button>
+  </mat-card-actions>
+</mat-card>

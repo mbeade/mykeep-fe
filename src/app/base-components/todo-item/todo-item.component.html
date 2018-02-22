@@ -1,0 +1,17 @@
+<div fxLayout="row" fxLayoutGap="5px">
+    <mat-checkbox class="check" [(ngModel)]="item.isDone" (change)="updateExistentItem(item)"></mat-checkbox>
+
+    <input class="itemInput" autofocus id="todo" #todoInput type="text" [(ngModel)]="item.todo" placeholder="Enter todo" *ngIf="isEditing"
+        (change)="saveItem()" (blur)="isEditing = false" />
+
+    <div class="clickable" style="min-width: 200px" (click)="editing()" *ngIf="!isEditing" fxLayout="row">&nbsp;
+
+        <label #todoLabel class="clickable oneline" [ngClass]="{'textDone': item.isDone}">{{item.todo}}</label>
+
+        <button mat-button matSuffix mat-icon-button aria-label="Clear" (click)="removeItem()">
+            <mat-icon>close</mat-icon>
+        </button>
+    </div>
+
+
+</div>

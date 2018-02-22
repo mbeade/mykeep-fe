@@ -1,0 +1,23 @@
+<!--The content below is only a placeholder and can be replaced.-->
+
+
+<div fxLayout="column" fxLayoutGap="10px">
+  <div fSxFlex>
+    <mat-toolbar>
+      <app-top-bar></app-top-bar>
+    </mat-toolbar>
+  </div>
+
+  <div fxLayout="column" fxLayoutGap="10px">
+    <div>
+      <button mat-raised-button color="accent" (click)="addNewList()">Add list</button>
+    </div>
+  </div>
+
+  <div *ngIf="todoLists">
+    <mat-card style="float: left" fxFlex fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxLayoutGap="5px">
+      <app-todo-list *ngFor="let list of todoLists" fxFlex [todoList]="list" class="item"></app-todo-list>
+    </mat-card>
+  </div>
+
+</div>

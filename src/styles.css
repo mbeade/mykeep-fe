@@ -1,0 +1,68 @@
+/* You can add global styles to this file, and also import other style files */
+/* @import "~@angular/material/prebuilt-themes/purple-green.css"; */
+
+/* @import '~@angular/material/prebuilt-themes/deeppurple-amber.css'; */
+/* @import '~@angular/material/prebuilt-themes/indigo-pink.css'; */
+@import '~@angular/material/prebuilt-themes/pink-bluegrey.css';
+
+
+
+html, body{
+    min-height: 100%;
+    width: 100%;
+    background: lightgrey;
+    /* font-weight: bold; */
+  }
+  body{
+    position: relative;
+  }
+  .overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    opacity: .5;
+    pointer-events: none;
+  }
+
+  .textDone{
+    text-decoration: line-through;
+  }
+
+  .clickable {
+      cursor: pointer;
+  }
+
+  input {
+      border: none;
+  }
+
+  .oneline {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: block;
+    width: 180px;
+    margin-top: 16px;
+}
+
+.check {
+    margin-top: 15px;
+}
+.itemInput {
+    margin-top: 15px;
+}
+
+.importantCard {
+    background: #c52b35 !important;
+    color: white !important;
+}
+
+.importantCard > mat-card-content > mat-list >  mat-list-item > 
+.mat-list-item-content > app-todo-item > div > div > label
+{
+    color: white !important;
+}
+
